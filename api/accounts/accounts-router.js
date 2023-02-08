@@ -28,7 +28,9 @@ router.get('/:id', checkAccountId, async (req, res, next) => {
 
 router.post('/', checkAccountNameUnique, checkAccountPayload, async (req, res, next) => {
   try{
-    
+    res.status(200).json({
+      message: 'still working on this one...'
+    })
   } catch (err) {
     next(err)
   }
