@@ -4,7 +4,6 @@ const Account = require('./accounts-model');
 function checkAccountPayload(req, res, next){
   const error = { status: 400 };
   const { name, budget } = req.body;
-  console.log(typeof req.body.budget)
 
   if(name === undefined || budget === undefined) {
     error.message = 'name and budget are required';
