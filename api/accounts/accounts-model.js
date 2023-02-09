@@ -10,10 +10,6 @@ async function getById(id) {
   return result
 }
 
-async function getByName(name) {
-  const result = await db('accounts').where('name', name).first();
-}
-
 async function create(account) {
   const accountId = await db('accounts').insert(account);
   const result = await getById(accountId);
@@ -21,7 +17,7 @@ async function create(account) {
 }
 
 async function updateById(id, account) {
-  await db('accounts').where('id', id).update({ 'name': account });
+  await db('accounts').where('id', id).update(account);
   const result = await getById(id);
   return result
 }
@@ -35,7 +31,6 @@ async function deleteById(id) {
 module.exports = {
   getAll,
   getById,
-  getByName,
   create,
   updateById,
   deleteById,
